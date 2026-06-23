@@ -109,7 +109,7 @@ This loads `housing.csv`, applies all cleaning/feature-engineering steps, trains
 
 ## Known Limitations
 
-`MedHouseVal` is capped at 5.00001 (~$500,001) for 4.81% of rows — a known property of the original census-derived data, not a data quality issue. This cap was kept (rather than dropped) since removing it would make the model blind to high-value areas entirely. The consequence is measurable: the final model's RMSE on capped rows is **1.0339**, roughly **2.4x worse** than its RMSE of **0.4289** on non-capped rows. **In practice, this model will systematically underpredict prices for genuinely high-value properties (~$500k+).**
+`MedHouseVal` is capped at 5.00001 ($500,001) for 4.81% of rows — a known property of the original census-derived data, not a data quality issue. This cap was kept (rather than dropped) since removing it would make the model blind to high-value areas entirely. The consequence is measurable: the final model's RMSE on capped rows is **1.0339**, roughly **2.4x worse** than its RMSE of **0.4289** on non-capped rows. **In practice, this model will systematically underpredict prices for genuinely high-value properties ($500k+).**
 
 `HouseAge` is similarly capped at 52 (6.17% of rows) — handled via the `is_max_house_age` flag rather than dropping or ignoring it.
 
